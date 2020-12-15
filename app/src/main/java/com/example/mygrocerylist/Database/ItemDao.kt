@@ -16,6 +16,9 @@ interface ItemDao {
     @Query("DELETE FROM ItemTable")
     fun deleteAllItems():Int
 
+    @Query("DELETE FROM ItemTable where gid=:id")
+    fun deleteId(id:Int):Int
+
     @Query("SELECT COUNT(*) FROM ItemTable")
     fun countRows():Int
 

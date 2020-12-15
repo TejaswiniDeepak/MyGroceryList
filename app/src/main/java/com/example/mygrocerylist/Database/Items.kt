@@ -6,8 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "ItemTable")
 data class Items (
-    @PrimaryKey(autoGenerate = true)
-    val id:Int,
+        @PrimaryKey(autoGenerate = true)
+        val gid:Int=0,
+
+
     @ColumnInfo(name = "ItemName")
     val itemName:String,
     @ColumnInfo(name = "Quantity")

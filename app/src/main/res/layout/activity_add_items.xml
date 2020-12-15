@@ -17,14 +17,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/slno"
-            android:inputType="number"
-            android:hint="ID"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="80dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

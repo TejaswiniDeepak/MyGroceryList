@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.room.Room
 import com.example.basicroom.GroceryDatabase
 
 
@@ -18,13 +19,17 @@ class AddItems : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_items)
 
-        val db: GroceryDatabase = GroceryDatabase.getInstance(this)
+        val db = Room.databaseBuilder(
+                applicationContext,
+                GroceryDatabase::class.java, "sleep_historydatabase"
+        ).build()
         button2.setOnClickListener {
         GlobalScope.launch {
 
                 db.itemDao().insertItems(
                     Items(
-                        slno.text.toString().toInt(),
+                            0,
+
                         ItemName.text.toString(),
                         NumberofItems.text.toString().toInt()
                     )

@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.example.basicroom.GroceryDatabase
 import com.example.mygrocerylist.Database.Items
 import kotlinx.android.synthetic.main.activity_add_items.*
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
     }
 
     override fun onResume()
@@ -39,7 +42,10 @@ class MainActivity : AppCompatActivity() {
 
     {
         Toast.makeText(this,"List Loaded", Toast.LENGTH_SHORT).show()
-        val db: GroceryDatabase = GroceryDatabase.getInstance(this)
+        val db = Room.databaseBuilder(
+                applicationContext,
+                GroceryDatabase::class.java, "sleep_historydatabase"
+        ).build()
         lifecycleScope.launch {
 
     /**var ItemList = db.itemDao().getAllItems()
@@ -56,6 +62,7 @@ class MainActivity : AppCompatActivity() {
     }
             recyclerViewMain.adapter=AdapterItems(itemList)
             recyclerViewMain.layoutManager=LinearLayoutManager(this@MainActivity)
+
 
 //recyclerViewMain.layoutManager=LinearLayoutManager(this@MainActivity)
 

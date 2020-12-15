@@ -9,10 +9,10 @@ import com.example.mygrocerylist.Database.ItemDao
 import com.example.mygrocerylist.Database.Items
 import com.example.mygrocerylist.MainActivity
 
-@Database(entities = [Items::class],version = 2)
+@Database(entities = [Items::class],version = 4)
 abstract class GroceryDatabase: RoomDatabase() {
     abstract fun itemDao():ItemDao
-    companion object {
+   companion object {
 
         @Volatile
         private var INSTANCE: GroceryDatabase? = null
